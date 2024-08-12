@@ -1,0 +1,34 @@
+BoxLayout:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+
+    TextInput:
+        id: input_miles
+        text: '0'
+        font_size: 32
+        multiline: False
+        on_text: app.handle_conversion(self.text)
+
+    BoxLayout:
+        size_hint_y: None
+        height: 40
+        spacing: 10
+
+        Button:
+            text: "Up"
+            on_press: app.handle_increment(input_miles.text, 1)
+
+        Button:
+            text: "Down"
+            on_press: app.handle_increment(input_miles.text, -1)
+
+    Label:
+        text: "Kilometres:"
+        font_size: 32
+        color: (1, 1, 0, 1)  # yellow text
+
+    Label:
+        text: app.output_text
+        font_size: 32
+        color: (1, 1, 0, 1)  # yellow text
